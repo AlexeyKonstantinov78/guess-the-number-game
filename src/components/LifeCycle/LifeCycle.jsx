@@ -2,6 +2,33 @@ import React from 'react';
 import style from './LifeCycle.module.css';
 
 export class LifeCycle extends React.Component {
+  /**
+   * ! render
+   * cinstructor
+   * getDerivedStateFromProps
+   * render
+   *
+   * !commit
+   * обновляется Dom
+   * com[onentDidMount
+   * componentWillUnmount  удаление компонента
+   *
+   */
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      field: 0,
+    };
+
+    this.handleer = this.handleer.bind(this);
+  }
+
+  handleer() {
+    this.setState(state => ({field: state.field + 1}));
+  }
+
   render() {
     return (
       <div>
@@ -27,6 +54,10 @@ export class LifeCycle extends React.Component {
             </ul>
           </div>
         </div>
+        <button
+          className={style.btn}
+          onClick={this.handleer}
+        >Click {this.state.field}</button>
       </div>
     );
   }
