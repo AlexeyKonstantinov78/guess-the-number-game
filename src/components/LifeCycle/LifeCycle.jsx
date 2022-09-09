@@ -3,6 +3,7 @@ import style from './LifeCycle.module.css';
 
 export class LifeCycle extends React.Component {
   /**
+   * при создании
    * ! render
    * cinstructor
    * getDerivedStateFromProps
@@ -13,6 +14,18 @@ export class LifeCycle extends React.Component {
    * componentDidMount
    * componentWillUnmount  удаление компонента
    *
+   * при обновлении
+   * !render
+   * getDerivedStateFromProps
+   * shouldComponentUpdate
+   * render
+   *
+   * !pre-commit
+   * getSnapshotBeforeUpdate
+   * ОБновляется DOM
+   *
+   * !commit
+   * companentDidUpdate
    */
 
   constructor(props) {
@@ -31,12 +44,12 @@ export class LifeCycle extends React.Component {
   componentDidMount() {
     console.log('componentDidMount');
 
-    setTimeout(() => {
-      console.log('timer');
-      this.setState(state => ({field: state.field + 1}));
-    }, 3000);
+    // setTimeout(() => {
+    //   console.log('timer');
+    //   this.setState(state => ({field: state.field + 1}));
+    // }, 3000);
 
-    document.addEventListener('scroll', this.handleer);
+    // document.addEventListener('scroll', this.handleer);
 
     // eslint-disable-next-line react/prop-types
     document.title = this.props.prop;
@@ -44,7 +57,7 @@ export class LifeCycle extends React.Component {
 
   componentWillUnmount() {
     console.log('componentWillUnmount');
-    document.removeEventListener('scroll', this.handleer);
+    // document.removeEventListener('scroll', this.handleer);
   }
 
   handleer = () => {
