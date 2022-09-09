@@ -7,6 +7,7 @@ export class ClassComponent extends React.Component {
     this.state = {
       number: 5,
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(event) {
