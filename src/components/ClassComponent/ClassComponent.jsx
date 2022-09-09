@@ -14,7 +14,7 @@ export class ClassComponent extends React.Component {
     console.log(this.state.number);
   };
 
-  handleInput = (event) => {
+  handleChange = (event) => {
     console.log(event.target.value);
   };
 
@@ -32,7 +32,7 @@ export class ClassComponent extends React.Component {
             className={style.input}
             type='number'
             id='user_number'
-            onInput={this.handleInput}
+            onChange={this.handleChange}
           />
           <button className={style.btn}>Угадать</button>
         </form>
