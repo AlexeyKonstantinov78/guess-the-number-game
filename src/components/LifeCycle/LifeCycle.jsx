@@ -55,10 +55,6 @@ export class LifeCycle extends React.Component {
     document.title = this.props.prop;
   }
 
-  handleer = () => {
-    this.setState(state => ({field: state.field + 1}));
-  };
-
   shouldComponentUpdate(nextProps, nextState, nextContext) {
     console.log('shouldComponentUpdate');
     // return true;
@@ -78,6 +74,10 @@ export class LifeCycle extends React.Component {
     console.log('componentWillUnmount');
     // document.removeEventListener('scroll', this.handleer);
   }
+
+  handleer = () => {
+    this.setState(state => ({field: state.field + 1}));
+  };
 
   render() {
     console.log('render');
