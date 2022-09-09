@@ -9,10 +9,10 @@ export class ClassComponent extends React.Component {
     };
   }
 
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     event.preventDefault();
     console.log(this.state.number);
-  }
+  };
 
   render() {
     return (
@@ -20,9 +20,7 @@ export class ClassComponent extends React.Component {
         <p className={style.result}>this.state = {this.state.number}</p>
         <form
           className={style.form}
-          onSubmit={(e) => {
-            this.handleSubmit(e);
-          }}>
+          onSubmit={this.handleSubmit}>
           <label className={style.label} htmlFor='user_number'>
             Угадай число
           </label>
