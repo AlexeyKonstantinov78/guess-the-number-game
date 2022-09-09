@@ -6,6 +6,7 @@ export class ClassComponent extends React.Component {
     super(props);
     this.state = {
       number: 5,
+      userNumber: '',
     };
   }
 
@@ -33,6 +34,7 @@ export class ClassComponent extends React.Component {
             type='number'
             id='user_number'
             onChange={this.handleChange}
+            value={this.state.userNumber}
           />
           <button className={style.btn}>Угадать</button>
         </form>
