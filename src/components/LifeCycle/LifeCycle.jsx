@@ -26,6 +26,12 @@ export class LifeCycle extends React.Component {
    *
    * !commit
    * componentDidUpdate
+   *
+   * обработка ошибок
+   * !error
+   * getDeriverStateFromError
+   * componentDidCatch
+   *
    */
 
   constructor(props) {
@@ -34,6 +40,7 @@ export class LifeCycle extends React.Component {
 
     this.state = {
       field: 0,
+      hasError: false,
     };
   }
 
@@ -69,6 +76,18 @@ export class LifeCycle extends React.Component {
   componentDidUpdate(prevProps, prevState, snapshot) {
     console.log('companentDidUpdate');
     window.scrollBy(0, -snapshot);
+  }
+
+  // error
+  getDeriverStateFromError(err) {
+    console.log('getDeriverStateFromError');
+    return {
+      hasError: true,
+    };
+  }
+  componentDidCatch(error, errorInfo) {
+    console.log('componentDidCatch');
+    // send(errorInfo.componentStack);
   }
 
   componentWillUnmount() {
