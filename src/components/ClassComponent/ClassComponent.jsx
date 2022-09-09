@@ -17,7 +17,7 @@ export class ClassComponent extends React.Component {
   render() {
     return (
       <div className={style.game}>
-        <p className={style.result}>this.state = {this.state.number}</p>
+        <p className={style.result}>{this.state.number}</p>
         <form
           className={style.form}
           onSubmit={this.handleSubmit}>
