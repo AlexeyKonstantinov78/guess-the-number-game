@@ -6,7 +6,7 @@ export class ClassComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      number: 5,
+      result: 'Результат',
       userNumber: '',
       randomNumber:
         Math.floor((Math.random() * this.props.max - this.props.min) +
@@ -16,29 +16,47 @@ export class ClassComponent extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state.number);
-  };
+    this.setState(state => {
+      if (!state.userNumber) return state;
 
-  handleChange = (event) => {
-    this.setState((state, props) => {
-      console.log(state, props);
+      if (state.userNumber > state.randomNumber) {
+        return {
+          result: `${state.userNumber} больше загадоного`,
+        };
+      }
+
+      if (state.userNumber < state.randomNumber) {
+        return {
+          result: `${state.userNumber} меньше загадоного`,
+        };
+      }
+
       return {
-        userNumber: event.target.value,
+        result: `Вы угадали, загаданное число ${state.userNumber}`,
       };
     });
   };
 
+  handleChange = (event) => {
+    this.setState((state, props) => ({
+      userNumber: event.target.value,
+    }), () => {
+      console.log(this.state);
+    });
+  };
+
   render() {
-    console.log(this.props);
     return (
       <div className={style.game}>
-        <p className={style.result}>{this.state.number}</p>
+        <p className={style.result}>{this.state.result}</p>
+
         <form
           className={style.form}
           onSubmit={this.handleSubmit}>
           <label className={style.label} htmlFor='user_number'>
             Угадай число
           </label>
+
           <input
             className={style.input}
             type='number'
@@ -46,6 +64,7 @@ export class ClassComponent extends React.Component {
             onChange={this.handleChange}
             value={this.state.userNumber}
           />
+
           <button className={style.btn}>Угадать</button>
         </form>
       </div>
