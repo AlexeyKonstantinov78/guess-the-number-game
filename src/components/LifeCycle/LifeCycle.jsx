@@ -10,7 +10,7 @@ export class LifeCycle extends React.Component {
    *
    * !commit
    * обновляется Dom
-   * com[onentDidMount
+   * componentDidMount
    * componentWillUnmount  удаление компонента
    *
    */
@@ -33,6 +33,7 @@ export class LifeCycle extends React.Component {
   };
 
   render() {
+    console.log('render');
     return (
       <div>
         <h1 className={style.title}>Жизненный цикл</h1>
