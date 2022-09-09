@@ -16,13 +16,16 @@ export class ClassComponent extends React.Component {
   };
 
   handleChange = (event) => {
-    this.setState({
-      userNumber: event.target.value,
+    this.setState((state, props) => {
+      console.log(state, props);
+      return {
+        userNumber: event.target.value,
+      };
     });
-    console.log(this.state);
   };
 
   render() {
+    console.log(this.props);
     return (
       <div className={style.game}>
         <p className={style.result}>{this.state.number}</p>
