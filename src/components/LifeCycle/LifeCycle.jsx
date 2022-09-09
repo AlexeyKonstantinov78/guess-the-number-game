@@ -61,13 +61,14 @@ export class LifeCycle extends React.Component {
     return this.state !== nextState || this.props !== nextProps;
   }
 
-  getSnapshotBeforeUpdate() {
+  getSnapshotBeforeUpdate(prevProps, prevState) {
     console.log('getSnapshotBeforeUpdate');
-    return null;
+    return window.pageYOffset;
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps, prevState, snapshot) {
     console.log('companentDidUpdate');
+    window.scrollBy(0, -snapshot);
   }
 
   componentWillUnmount() {
