@@ -28,6 +28,20 @@ export class LifeCycle extends React.Component {
     console.log('getDerivedStateFromProps');
   }
 
+  componentDidMount() {
+    console.log('componentDidMount');
+
+    setTimeout(() => {
+      console.log('timer');
+      this.setState(state => ({field: state.field + 1}));
+    }, 3000);
+
+    document.addEventListener('scroll', this.handleer);
+
+    // eslint-disable-next-line react/prop-types
+    document.title = this.props.prop;
+  }
+
   handleer = () => {
     this.setState(state => ({field: state.field + 1}));
   };
