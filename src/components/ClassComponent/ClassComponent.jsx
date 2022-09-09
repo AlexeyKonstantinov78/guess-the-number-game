@@ -1,5 +1,6 @@
 import React from 'react';
 import style from './ClassComponent.module.css';
+import PropTypes from 'prop-types';
 
 export class ClassComponent extends React.Component {
   constructor(props) {
@@ -7,6 +8,9 @@ export class ClassComponent extends React.Component {
     this.state = {
       number: 5,
       userNumber: '',
+      randomNumber:
+        Math.floor((Math.random() * this.props.max - this.props.min) +
+        this.props.min),
     };
   }
 
@@ -48,3 +52,8 @@ export class ClassComponent extends React.Component {
     );
   }
 }
+
+ClassComponent.propTypes = {
+  min: PropTypes.number,
+  max: PropTypes.number,
+};
