@@ -21,13 +21,11 @@ export class LifeCycle extends React.Component {
     this.state = {
       field: 0,
     };
-
-    this.handleer = this.handleer.bind(this);
   }
 
-  handleer() {
+  handleer = () => {
     this.setState(state => ({field: state.field + 1}));
-  }
+  };
 
   render() {
     return (
