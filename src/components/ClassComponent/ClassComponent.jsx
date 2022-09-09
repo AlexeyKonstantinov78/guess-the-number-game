@@ -14,6 +14,10 @@ export class ClassComponent extends React.Component {
     console.log(this.state.number);
   };
 
+  handleInput = (event) => {
+    console.log(event.target.value);
+  };
+
   render() {
     return (
       <div className={style.game}>
@@ -24,7 +28,12 @@ export class ClassComponent extends React.Component {
           <label className={style.label} htmlFor='user_number'>
             Угадай число
           </label>
-          <input className={style.input} type='number' id='user_number' />
+          <input
+            className={style.input}
+            type='number'
+            id='user_number'
+            onInput={this.handleInput}
+          />
           <button className={style.btn}>Угадать</button>
         </form>
       </div>
