@@ -16,7 +16,10 @@ export class ClassComponent extends React.Component {
   };
 
   handleChange = (event) => {
-    console.log(event.target.value);
+    this.setState({
+      userNumber: event.target.value,
+    });
+    console.log(this.state);
   };
 
   render() {
