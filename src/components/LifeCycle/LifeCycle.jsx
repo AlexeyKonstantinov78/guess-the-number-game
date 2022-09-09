@@ -25,7 +25,7 @@ export class LifeCycle extends React.Component {
    * ОБновляется DOM
    *
    * !commit
-   * companentDidUpdate
+   * componentDidUpdate
    */
 
   constructor(props) {
@@ -55,14 +55,29 @@ export class LifeCycle extends React.Component {
     document.title = this.props.prop;
   }
 
+  handleer = () => {
+    this.setState(state => ({field: state.field + 1}));
+  };
+
+  shouldComponentUpdate(nextProps, nextState, nextContext) {
+    console.log('shouldComponentUpdate');
+    // return true;
+    return this.state !== nextState || this.props !== nextProps;
+  }
+
+  getSnapshotBeforeUpdate() {
+    console.log('getSnapshotBeforeUpdate');
+    return null;
+  }
+
+  componentDidUpdate() {
+    console.log('companentDidUpdate');
+  }
+
   componentWillUnmount() {
     console.log('componentWillUnmount');
     // document.removeEventListener('scroll', this.handleer);
   }
-
-  handleer = () => {
-    this.setState(state => ({field: state.field + 1}));
-  };
 
   render() {
     console.log('render');
