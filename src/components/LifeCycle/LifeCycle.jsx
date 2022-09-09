@@ -17,10 +17,15 @@ export class LifeCycle extends React.Component {
 
   constructor(props) {
     super(props);
+    console.log('constructor');
 
     this.state = {
       field: 0,
     };
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    console.log('getDerivedStateFromProps');
   }
 
   handleer = () => {
