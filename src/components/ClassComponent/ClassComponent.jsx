@@ -9,6 +9,7 @@ export class ClassComponent extends React.Component {
     randomNumber:
       Math.floor((Math.random() * this.props.max - this.props.min) +
       this.props.min),
+    buttonText: 'Угадать'
   };
 
   handleSubmit = (event) => {
@@ -33,6 +34,7 @@ export class ClassComponent extends React.Component {
       return {
         result: `Вы угадали, загаданное число ${state.userNumber}`,
         userNumber: '',
+        buttonText: 'Сыграть ещё'
       };
     });
   };
@@ -63,7 +65,9 @@ export class ClassComponent extends React.Component {
             value={this.state.userNumber}
           />
 
-          <button className={style.btn}>Угадать</button>
+          <button className={style.btn}>
+            {this.state.buttonText}
+          </button>
         </form>
       </div>
     );
