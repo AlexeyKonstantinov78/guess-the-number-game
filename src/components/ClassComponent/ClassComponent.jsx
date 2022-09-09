@@ -19,17 +19,20 @@ export class ClassComponent extends React.Component {
       if (state.userNumber > state.randomNumber) {
         return {
           result: `${state.userNumber} больше загадоного`,
+          userNumber: '',
         };
       }
 
       if (state.userNumber < state.randomNumber) {
         return {
           result: `${state.userNumber} меньше загадоного`,
+          userNumber: '',
         };
       }
 
       return {
         result: `Вы угадали, загаданное число ${state.userNumber}`,
+        userNumber: '',
       };
     });
   };
