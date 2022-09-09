@@ -3,16 +3,13 @@ import style from './ClassComponent.module.css';
 import PropTypes from 'prop-types';
 
 export class ClassComponent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      result: 'Результат',
-      userNumber: '',
-      randomNumber:
-        Math.floor((Math.random() * this.props.max - this.props.min) +
-        this.props.min),
-    };
-  }
+  state = {
+    result: 'Результат',
+    userNumber: '',
+    randomNumber:
+      Math.floor((Math.random() * this.props.max - this.props.min) +
+      this.props.min),
+  };
 
   handleSubmit = (event) => {
     event.preventDefault();
