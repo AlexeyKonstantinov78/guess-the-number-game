@@ -42,6 +42,11 @@ export class LifeCycle extends React.Component {
     document.title = this.props.prop;
   }
 
+  componentWillUnmount() {
+    console.log('componentWillUnmount');
+    document.removeEventListener('scroll', this.handleer);
+  }
+
   handleer = () => {
     this.setState(state => ({field: state.field + 1}));
   };
